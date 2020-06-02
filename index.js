@@ -1,12 +1,12 @@
-'use strict';
+"use strict";
 
-$('.thumbnails').on('click','.thumbnail', event => {
-  event.preventDefault();
-    // take attribute and alt of thumbnail image
-    // edit hero class to be thumbnail image
-    // $('.hero').attr('src',$(event).attr('src'));
-    $('.hero').attr('alt','bloop');
-    // console.log(event);
+function caroselEngine() {
+  $(".thumbnails").on("click", ".thumbnail", event => {
+    const thumbSrc = $(event.currentTarget).find("img").attr("src");
+    $(".hero img").attr("src", thumbSrc);
+    const thumbAlt = $(event.currentTarget).find("img").attr("alt");
+    $(".hero img").attr("alt", thumbAlt);
+  });
+}
 
-//   console.log('delete button clicked');
-});
+$(caroselEngine);
